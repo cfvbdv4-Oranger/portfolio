@@ -1,0 +1,1 @@
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add("visible")})},{threshold:.08});document.querySelectorAll(".project, .section-heading, .capability-grid article, .intro-strip > *").forEach(element=>{element.classList.add("reveal");observer.observe(element)});
