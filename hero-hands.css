@@ -32,26 +32,32 @@
 .hero-copy .hero-actions { margin-top: 20px; }
 .hero-copy .hero-metrics { display: none; }
 
-.hero-hands {
+.hero-hand {
   position: absolute;
   z-index: 3;
-  left: 50%;
   top: 63%;
-  /*
-   * Keep the source artwork wider than the viewport so both forearms bleed
-   * cleanly into the screen edges, even while pointer parallax is active.
-   */
-  width: calc(100vw + 180px);
-  transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my) + var(--scroll)));
-  animation: hands-float 7s ease-in-out infinite;
   pointer-events: none;
   will-change: transform;
 }
 
-.hero-hands img {
+.hero-hand img {
   width: 100%;
   height: auto;
   max-width: none;
+}
+
+.hero-hand-human {
+  left: 0;
+  width: 50vw;
+  transform: translate(calc(-100% + var(--mx)), calc(-50% + var(--my) + var(--scroll)));
+  animation: human-enter 1.5s cubic-bezier(.16,1,.3,1) .15s forwards, human-hover 5.8s ease-in-out 1.8s infinite;
+}
+
+.hero-hand-robot {
+  right: 0;
+  width: 48vw;
+  transform: translate(calc(100% - var(--mx)), calc(-50% - var(--my) + var(--scroll)));
+  animation: robot-enter 1.6s cubic-bezier(.16,1,.3,1) .25s forwards, robot-hover 6.4s ease-in-out 1.9s infinite;
 }
 
 .hero-orb {
@@ -85,9 +91,26 @@
 
 .hero-caption span:last-child { color: #1769ff; }
 
-@keyframes hands-float {
+@keyframes human-enter {
+  0% { transform: translate(calc(-100% + var(--mx)), calc(-50% + var(--my) + var(--scroll))); }
+  82% { transform: translate(calc(-2% + var(--mx)), calc(-50% + var(--my) + var(--scroll))); }
+  100% { transform: translate(calc(-5% + var(--mx)), calc(-50% + var(--my) + var(--scroll))); }
+}
+
+@keyframes robot-enter {
+  0% { transform: translate(calc(100% - var(--mx)), calc(-50% - var(--my) + var(--scroll))); }
+  82% { transform: translate(calc(1% - var(--mx)), calc(-50% - var(--my) + var(--scroll))); }
+  100% { transform: translate(calc(4% - var(--mx)), calc(-50% - var(--my) + var(--scroll))); }
+}
+
+@keyframes human-hover {
   0%, 100% { margin-top: 0; }
-  50% { margin-top: -9px; }
+  50% { margin-top: -10px; }
+}
+
+@keyframes robot-hover {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: 8px; }
 }
 
 @keyframes orb-breathe {
@@ -98,7 +121,9 @@
 @media (max-width: 980px) {
   .hero { display: flex; padding-top: 60px; }
   .hero-copy { width: min(760px, 92vw); }
-  .hero-hands { top: 66%; width: 145vw; }
+  .hero-hand { top: 66%; }
+  .hero-hand-human { width: 72vw; }
+  .hero-hand-robot { width: 69vw; }
 }
 
 @media (max-width: 620px) {
@@ -120,7 +145,9 @@
   }
   .hero-copy .hero-actions,
   .hero-copy .hero-metrics { justify-content: flex-start; }
-  .hero-hands { top: 67%; width: 210vw; }
+  .hero-hand { top: 67%; }
+  .hero-hand-human { width: 104vw; }
+  .hero-hand-robot { width: 100vw; }
   .hero-orb { top: 66%; width: 72vw; }
   .hero-caption {
     left: 20px;
@@ -132,6 +159,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-hands,
+  .hero-hand,
   .hero-orb { animation: none; }
+  .hero-hand-human { transform: translate(-5%, -50%); }
+  .hero-hand-robot { transform: translate(4%, -50%); }
 }
