@@ -9,7 +9,7 @@
   display: flex;
   align-items: flex-start;
   overflow: hidden;
-  background: linear-gradient(to bottom, #343434 0%, #202124 30%, #101114 68%, #050506 100%);
+  background: linear-gradient(to bottom, #050506 0%, #101114 30%, #242528 68%, #494a4d 100%);
   color: #f4f5f7;
 }
 
@@ -96,7 +96,7 @@
 .hero-caption span:last-child { color: #78a3ff; }
 
 .site-header {
-  background: #343434;
+  background: #050506;
   color: #f4f5f7;
   border-bottom-color: rgba(255,255,255,.13);
 }
