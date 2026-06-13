@@ -18,6 +18,7 @@
   width: min(920px, 92vw);
   margin: 0 auto;
   text-align: center;
+  transform: translateY(-42px);
 }
 
 .hero-copy .eyebrow { color: #1769ff; }
@@ -136,6 +137,7 @@
     width: 100%;
     margin: 0;
     text-align: left;
+    transform: translateY(-18px);
   }
   .hero-copy .hero-intro {
     width: 100%;
