@@ -37,7 +37,11 @@
   z-index: 3;
   left: 50%;
   top: 63%;
-  width: min(100vw, 1560px);
+  /*
+   * Keep the source artwork wider than the viewport so both forearms bleed
+   * cleanly into the screen edges, even while pointer parallax is active.
+   */
+  width: calc(100vw + 180px);
   transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my) + var(--scroll)));
   animation: hands-float 7s ease-in-out infinite;
   pointer-events: none;
