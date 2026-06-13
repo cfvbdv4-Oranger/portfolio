@@ -9,7 +9,11 @@
   display: flex;
   align-items: flex-start;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 49%, rgba(255,255,255,.98) 0 13%, rgba(255,255,255,.55) 30%, transparent 59%);
+  background:
+    radial-gradient(circle at 50% 58%, rgba(78,84,96,.68) 0 13%, rgba(31,34,41,.72) 35%, transparent 61%),
+    radial-gradient(circle at 20% 12%, rgba(92,98,108,.23), transparent 35%),
+    linear-gradient(145deg, #24262b 0%, #111216 48%, #050607 100%);
+  color: #f4f5f7;
 }
 
 .hero-copy {
@@ -21,13 +25,17 @@
   transform: translateY(-42px);
 }
 
-.hero-copy .eyebrow { color: #1769ff; }
+.hero-copy .eyebrow { color: #78a3ff; }
 .hero-copy h1 {
   margin: 12px 0 18px;
   font-size: clamp(54px, 5.6vw, 88px);
   line-height: .96;
 }
+.hero-copy h1 em { color: #a7acb2; }
 .hero-copy .hero-intro { margin: 0 auto; max-width: 570px; font-size: 14px; }
+.hero-copy .hero-intro { color: #b8bcc2; }
+.hero-copy .button.primary { background: #f4f5f7; color: #111216; border-color: #f4f5f7; }
+.hero-copy .button.ghost { color: #f4f5f7; border-color: rgba(255,255,255,.52); background: rgba(255,255,255,.04); backdrop-filter: blur(12px); }
 .hero-copy .hero-actions,
 .hero-copy .hero-metrics { justify-content: center; }
 .hero-copy .hero-actions { margin-top: 20px; }
@@ -70,7 +78,7 @@
   aspect-ratio: 1;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle at 38% 35%, rgba(255,255,255,.98), rgba(71,130,255,.20) 30%, rgba(23,105,255,.08) 54%, transparent 72%);
+  background: radial-gradient(circle at 38% 35%, rgba(255,255,255,.42), rgba(71,130,255,.32) 30%, rgba(23,105,255,.12) 54%, transparent 72%);
   filter: blur(5px);
   animation: orb-breathe 5s ease-in-out infinite;
   pointer-events: none;
@@ -84,13 +92,26 @@
   bottom: 28px;
   display: flex;
   justify-content: space-between;
-  color: #777e79;
+  color: #9298a1;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: .14em;
 }
 
-.hero-caption span:last-child { color: #1769ff; }
+.hero-caption span:last-child { color: #78a3ff; }
+
+.site-header {
+  background: rgba(8,9,11,.82);
+  color: #f4f5f7;
+  border-bottom-color: rgba(255,255,255,.13);
+}
+
+.site-header .header-cta {
+  border-color: rgba(255,255,255,.55);
+  background: rgba(255,255,255,.04);
+}
+
+.site-header .brand span { color: #78a3ff; }
 
 @keyframes human-enter {
   0% { transform: translate(calc(-100% + var(--mx)), calc(-50% + var(--my) + var(--scroll))); }
