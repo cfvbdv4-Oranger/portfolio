@@ -50,7 +50,7 @@
   width: 100%;
   height: auto;
   max-width: none;
-  filter: drop-shadow(0 0 1px rgba(3, 4, 5, .9));
+  filter: drop-shadow(0 5px 12px rgba(0, 0, 0, .18));
 }
 
 .hero-hand-human {
@@ -178,17 +178,17 @@
 
 .hero-hand {
   z-index: 2;
-  top: 39%;
+  top: 45%;
 }
 
 .hero-hand-human {
-  left: -3px;
-  width: 43vw;
+  left: -1px;
+  width: 52vw;
 }
 
 .hero-hand-robot {
-  right: -3px;
-  width: 42vw;
+  right: -1px;
+  width: 51vw;
 }
 
 .hero-glass {
@@ -196,9 +196,9 @@
   z-index: 4;
   left: 4vw;
   right: 4vw;
-  bottom: 5vh;
+  bottom: 2vh;
   width: auto;
-  min-height: 52vh;
+  min-height: 47vh;
   margin: 0;
   padding: clamp(32px, 5vw, 78px);
   display: flex;
@@ -274,6 +274,36 @@
 }
 
 .hero-caption { display: none; }
+
+.hero-single-subject {
+  background: #111214;
+}
+
+.hero-subject {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-subject::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .26), transparent 28%),
+    linear-gradient(90deg, rgba(0, 0, 0, .18), transparent 32%, transparent 68%, rgba(0, 0, 0, .18));
+}
+
+.hero-subject img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 37%;
+  transform: scale(1.02);
+  filter: contrast(1.04) brightness(.82);
+}
 
 @keyframes glass-rise {
   0% { opacity: 0; transform: translateY(115%); }
@@ -431,9 +461,10 @@
 @media (max-width: 980px) {
   .hero { display: flex; padding-top: 60px; }
   .hero-copy { width: min(760px, 92vw); }
-  .hero-hand { top: 66%; }
-  .hero-hand-human { width: 72vw; }
-  .hero-hand-robot { width: 69vw; }
+  .hero-subject img { object-position: 50% 30%; }
+  .hero-hand { top: 51%; }
+  .hero-hand-human { width: 76vw; }
+  .hero-hand-robot { width: 74vw; }
   .intro-strip {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -474,9 +505,13 @@
     font-size: 13px;
     overflow-wrap: anywhere;
   }
-  .hero-hand { top: 29%; }
-  .hero-hand-human { width: 73vw; }
-  .hero-hand-robot { width: 70vw; }
+  .hero-subject img {
+    object-position: 50% 24%;
+    transform: scale(1.28);
+  }
+  .hero-hand { top: 30%; }
+  .hero-hand-human { width: 86vw; }
+  .hero-hand-robot { width: 84vw; }
   .hero-orb { top: 66%; width: 72vw; }
   .intro-strip {
     margin: 32px 16px;
