@@ -302,7 +302,7 @@
   object-fit: cover;
   object-position: 50% 37%;
   transform: scale(1.02);
-  filter: contrast(1.04) brightness(.82);
+  filter: contrast(1.02) brightness(.94);
 }
 
 @keyframes glass-rise {
